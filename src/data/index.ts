@@ -319,6 +319,44 @@ export const PROJECTS: Project[] = [
     year: '2025',
     architecture: ['Dashboard UI', 'Data Layer', 'Analytics Engine', 'Export / Backup'],
   },
+  {
+    id: '5',
+    slug: 'portfolio',
+    title: 'Personal Portfolio',
+    subtitle: 'Black & crimson developer portfolio — this website',
+    description:
+      'The site you are browsing right now — a premium React 19 portfolio with a black/red theme, smooth motion, lazy-loaded sections, and live GitHub integration.',
+    longDescription:
+      'A production-grade personal portfolio built with React 19, TypeScript, Vite, and Tailwind CSS v4. Every section is code-split and lazy-loaded as it enters the viewport, with state that persists across theme switches. It features a custom cursor, command palette, dark/light black-and-crimson themes, animated sections powered by Framer Motion and GSAP, Lenis smooth scrolling, project case-study pages, and a GitHub section that pulls live profile and repository data. Deployed as a static build with SPA configs for Vercel and Netlify.',
+    image: '/projects/portfolio.png',
+    gallery: ['/projects/portfolio.png'],
+    tech: ['React 19', 'TypeScript', 'Vite', 'Tailwind CSS v4', 'Framer Motion', 'GSAP', 'Lenis', 'React Router'],
+    github: 'https://github.com/Abu-Hurraira/Portfolio',
+    features: [
+      'Black & crimson dark/light themes',
+      'Viewport-aware lazy loading for every section',
+      'Custom cursor, spotlight, and magnetic buttons',
+      'Command palette (Ctrl/⌘ + K) and floating dock',
+      'Project case-study pages with architecture views',
+      'Live GitHub profile & repository feed',
+      'SEO metadata, Open Graph, sitemap, robots.txt',
+      'Konami-code easter egg',
+    ],
+    challenges: [
+      'Keeping rich motion smooth without tanking frame rates',
+      'Preserving lazy-loaded section state across theme switches',
+      'Making a heavy visual design load fast on first paint',
+    ],
+    solutions: [
+      'Replaced React-state-driven effects with direct DOM/rAF updates',
+      'Split theme into its own context and cached revealed sections globally',
+      'Route + section code-splitting with idle-time prefetching',
+    ],
+    role: 'Designer & Engineer — concept, UI design, architecture, and implementation',
+    category: 'Product',
+    year: '2025',
+    architecture: ['React UI (lazy routes & sections)', 'Theme & App Contexts', 'GitHub REST API', 'Static Build (Vercel / Netlify)'],
+  },
 ]
 
 export const EDUCATION: Education[] = [
