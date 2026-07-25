@@ -1,0 +1,250 @@
+@import "tailwindcss";
+
+@theme {
+  /* Black + crimson system */
+  --color-bg: #050505;
+  --color-card: #121010;
+  --color-accent: #ef4444;
+  --color-secondary: #f87171;
+  --color-purple: #7f1d1d;
+  --color-text: #fafafa;
+  --color-muted: #a3a3a3;
+  --color-border: rgba(239, 68, 68, 0.14);
+  --color-glow: rgba(239, 68, 68, 0.45);
+  --color-surface: rgba(239, 68, 68, 0.06);
+  --color-surface-hover: rgba(239, 68, 68, 0.12);
+
+  --font-display: "Syne", ui-sans-serif, system-ui, sans-serif;
+  --font-sans: "Outfit", ui-sans-serif, system-ui, sans-serif;
+
+  --animate-marquee: marquee 40s linear infinite;
+}
+
+@keyframes marquee {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+@keyframes gradient-shift {
+  0%, 100% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+}
+
+@keyframes fade-up {
+  from { opacity: 0; transform: translateY(16px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes float-soft {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
+
+@layer base {
+  * {
+    border-color: var(--color-border);
+  }
+
+  html {
+    scroll-behavior: auto;
+  }
+
+  html.lenis, html.lenis body {
+    height: auto;
+  }
+
+  body {
+    @apply bg-bg text-text font-sans antialiased overflow-x-hidden;
+    background-image:
+      radial-gradient(ellipse 80% 50% at 50% -20%, rgba(239, 68, 68, 0.22), transparent),
+      radial-gradient(ellipse 55% 40% at 100% 0%, rgba(127, 29, 29, 0.28), transparent),
+      radial-gradient(ellipse 50% 30% at 0% 100%, rgba(0, 0, 0, 0.9), transparent);
+    cursor: none;
+  }
+
+  /* Light mode: warm paper + deep crimson (still black/red DNA) */
+  html.light,
+  body.light {
+    --color-bg: #f6f1f1;
+    --color-card: #ffffff;
+    --color-accent: #dc2626;
+    --color-secondary: #b91c1c;
+    --color-purple: #7f1d1d;
+    --color-text: #140a0a;
+    --color-muted: #5c4545;
+    --color-border: rgba(127, 29, 29, 0.16);
+    --color-glow: rgba(220, 38, 38, 0.28);
+    --color-surface: rgba(127, 29, 29, 0.05);
+    --color-surface-hover: rgba(127, 29, 29, 0.1);
+  }
+
+  body.light {
+    background-color: var(--color-bg);
+    color: var(--color-text);
+    background-image:
+      radial-gradient(ellipse 80% 50% at 50% -20%, rgba(220, 38, 38, 0.12), transparent),
+      radial-gradient(ellipse 60% 40% at 100% 0%, rgba(127, 29, 29, 0.08), transparent),
+      radial-gradient(ellipse 50% 30% at 0% 100%, rgba(0, 0, 0, 0.04), transparent);
+  }
+
+  @media (pointer: coarse) {
+    body { cursor: auto; }
+  }
+
+  ::selection {
+    background: rgba(239, 68, 68, 0.4);
+    color: white;
+  }
+
+  body.light ::selection {
+    color: #140a0a;
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--color-accent);
+    outline-offset: 3px;
+  }
+
+  h1, h2, h3, h4 {
+    font-family: var(--font-display);
+  }
+}
+
+@layer utilities {
+  .glass {
+    background: color-mix(in srgb, var(--color-card) 78%, transparent);
+    backdrop-filter: blur(16px);
+    border: 1px solid var(--color-border);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.35);
+  }
+
+  body.light .glass {
+    background: rgba(255, 255, 255, 0.9);
+    box-shadow: 0 8px 28px rgba(80, 20, 20, 0.08);
+  }
+
+  .glass-strong {
+    background: color-mix(in srgb, var(--color-card) 90%, transparent);
+    backdrop-filter: blur(20px);
+    border: 1px solid var(--color-border);
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.45);
+  }
+
+  body.light .glass-strong {
+    background: rgba(255, 255, 255, 0.96);
+    box-shadow: 0 12px 36px rgba(80, 20, 20, 0.1);
+  }
+
+  .gradient-text {
+    @apply bg-clip-text text-transparent;
+    background-image: linear-gradient(135deg, #ef4444 0%, #f87171 40%, #7f1d1d 100%);
+    background-size: 200% 200%;
+    animation: gradient-shift 10s ease infinite;
+  }
+
+  body.light .gradient-text {
+    background-image: linear-gradient(135deg, #dc2626 0%, #b91c1c 45%, #450a0a 100%);
+  }
+
+  .gradient-border {
+    position: relative;
+  }
+
+  .gradient-border::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    padding: 1px;
+    border-radius: inherit;
+    background: linear-gradient(135deg, rgba(239, 68, 68, 0.7), rgba(127, 29, 29, 0.5), rgba(248, 113, 113, 0.45));
+    -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+    pointer-events: none;
+  }
+
+  .text-balance {
+    text-wrap: balance;
+  }
+
+  .section-pad {
+    @apply px-5 sm:px-8 lg:px-12 xl:px-20;
+  }
+
+  .container-premium {
+    @apply mx-auto w-full max-w-7xl;
+  }
+
+  .surface {
+    background: var(--color-surface);
+    border: 1px solid var(--color-border);
+  }
+
+  .fade-up {
+    animation: fade-up 0.55s cubic-bezier(0.22, 1, 0.36, 1) both;
+  }
+
+  .float-soft {
+    animation: float-soft 5s ease-in-out infinite;
+  }
+}
+
+body.light .border-white\/5,
+body.light .border-white\/10,
+body.light .border-white\/12,
+body.light .border-white\/15 {
+  border-color: var(--color-border) !important;
+}
+
+body.light .bg-white\/5,
+body.light .bg-white\/8,
+body.light .bg-white\/10 {
+  background-color: var(--color-surface) !important;
+}
+
+body.light .hover\:bg-white\/5:hover,
+body.light .hover\:bg-white\/8:hover,
+body.light .hover\:bg-white\/10:hover {
+  background-color: var(--color-surface-hover) !important;
+}
+
+body.light .hover\:text-white:hover {
+  color: var(--color-text) !important;
+}
+
+body.light .text-white:not(button):not([class*="bg-accent"]):not([class*="from-accent"]):not([class*="bg-gradient"]) {
+  color: var(--color-text);
+}
+
+body.light .text-white\/90 {
+  color: rgb(20 10 10 / 0.9);
+}
+
+body.light .bg-white\/20 {
+  background-color: rgb(127 29 29 / 0.12);
+}
+
+body.light .bg-black\/40 {
+  background-color: rgb(20 10 10 / 0.08);
+  color: var(--color-text);
+}
+
+body.light button.bg-accent,
+body.light a.bg-accent,
+body.light [class*="from-accent"][class*="to-"],
+body.light .bg-gradient-to-r {
+  color: #fff;
+}
+
+body.light button.bg-accent *,
+body.light a.bg-accent *,
+body.light [class*="from-accent"][class*="to-"] * {
+  color: inherit;
+}
+
+@media (pointer: fine) {
+  a, button, [role="button"], input, textarea, select, .magnetic {
+    cursor: none;
+  }
+}
