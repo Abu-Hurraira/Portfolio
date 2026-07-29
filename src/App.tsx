@@ -41,7 +41,7 @@ export default function App() {
   return (
     <HelmetProvider>
       <AppProvider>
-        <BrowserRouter>
+        <BrowserRouter basename={import.meta.env.BASE_URL}>
           <Suspense fallback={<PageLoader full />}>
             <Routes>
               <Route element={<RootLayout />}>

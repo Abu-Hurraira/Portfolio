@@ -9,6 +9,7 @@ import {
 } from '@/components/icons'
 import { Link, useLocation } from 'react-router-dom'
 import { cn } from '@/utils/cn'
+import { withBase } from '@/utils/assets'
 
 const items = [
   { icon: Home, label: 'Home', href: '/#home', type: 'hash' as const },
@@ -48,10 +49,10 @@ export function FloatingDock() {
             )
           }
 
-          const href =
-            item.href.startsWith('/#') && location.pathname !== '/'
-              ? `/${item.href.slice(1)}`
-              : item.href
+          const isHome = location.pathname === '/' || location.pathname === import.meta.env.BASE_URL.replace(/\/$/, '')
+          const href = item.href.startsWith('/#')
+            ? isHome ? item.href.slice(1) : withBase(item.href)
+            : withBase(item.href)
 
           return (
             <a key={item.label} href={href} className={className} aria-label={item.label}>

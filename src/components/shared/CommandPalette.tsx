@@ -5,6 +5,7 @@ import { useNavigate } from 'react-router-dom'
 import { NAV_ITEMS, PROJECTS, SITE } from '@/data'
 import { useApp } from '@/context/AppContext'
 import { cn } from '@/utils/cn'
+import { withBase } from '@/utils/assets'
 
 export function CommandPalette() {
   const { commandOpen, setCommandOpen } = useApp()
@@ -38,7 +39,7 @@ export function CommandPalette() {
         id: 'resume',
         label: 'Download Resume',
         group: 'Actions',
-        action: () => window.open(SITE.resumeUrl, '_blank'),
+        action: () => window.open(withBase(SITE.resumeUrl), '_blank'),
       },
       {
         id: 'github',

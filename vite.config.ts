@@ -2,12 +2,28 @@ import { defineConfig } from 'vite'
 import react from '@vitejs/plugin-react'
 import tailwindcss from '@tailwindcss/vite'
 import path from 'node:path'
+import fs from 'node:fs'
 import { fileURLToPath } from 'node:url'
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url))
 
 export default defineConfig({
-  plugins: [react(), tailwindcss()],
+  base: '/Portfolio/',
+  plugins: [
+    react(),
+    tailwindcss(),
+    {
+      name: 'copy-404',
+      closeBundle() {
+        const distDir = path.resolve(__dirname, 'dist')
+        const indexHtml = path.resolve(distDir, 'index.html')
+        const html404 = path.resolve(distDir, '404.html')
+        if (fs.existsSync(indexHtml)) {
+          fs.copyFileSync(indexHtml, html404)
+        }
+      },
+    },
+  ],
   resolve: {
     alias: {
       '@': path.resolve(__dirname, './src'),
@@ -29,3 +45,4 @@ export default defineConfig({
     },
   },
 })
+

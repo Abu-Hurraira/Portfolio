@@ -7,6 +7,7 @@ import { useApp, useTheme } from '@/context/AppContext'
 import { Button } from '@/components/ui/Button'
 import { Magnetic } from '@/components/ui/Magnetic'
 import { cn } from '@/utils/cn'
+import { withBase } from '@/utils/assets'
 
 export function Navbar() {
   const [scrolled, setScrolled] = useState(false)
@@ -41,15 +42,22 @@ export function Navbar() {
         </Magnetic>
 
         <nav className="hidden items-center gap-1 lg:flex">
-          {links.slice(0, 6).map((item) => (
-            <a
-              key={item.href}
-              href={item.href.startsWith('/#') && location.pathname !== '/' ? `/${item.href.slice(1)}` : item.href}
-              className="rounded-lg px-3 py-2 text-sm text-muted transition-colors hover:bg-white/5 hover:text-text"
-            >
-              {item.label}
-            </a>
-          ))}
+          {links.slice(0, 6).map((item) => {
+            const isHome = location.pathname === '/' || location.pathname === import.meta.env.BASE_URL.replace(/\/$/, '')
+            const href = item.href.startsWith('/#')
+              ? isHome ? item.href.slice(1) : withBase(item.href)
+              : withBase(item.href)
+
+            return (
+              <a
+                key={item.href}
+                href={href}
+                className="rounded-lg px-3 py-2 text-sm text-muted transition-colors hover:bg-white/5 hover:text-text"
+              >
+                {item.label}
+              </a>
+            )
+          })}
         </nav>
 
         <div className="flex items-center gap-1.5">
@@ -92,16 +100,23 @@ export function Navbar() {
           className="glass border-t border-white/5 lg:hidden"
         >
           <div className="section-pad flex flex-col gap-1 py-4">
-            {links.map((item) => (
-              <a
-                key={item.href}
-                href={item.href}
-                onClick={() => setOpen(false)}
-                className="rounded-xl px-4 py-3 text-sm text-muted hover:bg-white/5 hover:text-text"
-              >
-                {item.label}
-              </a>
-            ))}
+            {links.map((item) => {
+              const isHome = location.pathname === '/' || location.pathname === import.meta.env.BASE_URL.replace(/\/$/, '')
+              const href = item.href.startsWith('/#')
+                ? isHome ? item.href.slice(1) : withBase(item.href)
+                : withBase(item.href)
+
+              return (
+                <a
+                  key={item.href}
+                  href={href}
+                  onClick={() => setOpen(false)}
+                  className="rounded-xl px-4 py-3 text-sm text-muted hover:bg-white/5 hover:text-text"
+                >
+                  {item.label}
+                </a>
+              )
+            })}
           </div>
         </motion.div>
       )}

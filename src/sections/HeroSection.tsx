@@ -5,6 +5,7 @@ import { Button } from '@/components/ui/Button'
 import { Magnetic } from '@/components/ui/Magnetic'
 import { Typewriter } from '@/components/ui/Typewriter'
 import { AuroraBackground } from '@/components/effects/AuroraBackground'
+import { withBase } from '@/utils/assets'
 
 export function HeroSection() {
   return (
@@ -48,7 +49,7 @@ export function HeroSection() {
                 variant="glow"
                 size="default"
                 className="h-11 px-4 sm:px-5"
-                onClick={() => window.open(SITE.resumeUrl, '_blank')}
+                onClick={() => window.open(withBase(SITE.resumeUrl), '_blank')}
               >
                 <Download className="h-4 w-4" />
                 <span className="whitespace-nowrap">Download Resume</span>
@@ -99,7 +100,7 @@ export function HeroSection() {
           <div className="pointer-events-none absolute -inset-6 rounded-full bg-accent/20 blur-3xl" aria-hidden />
           <div className="relative">
             <img
-              src="/hero/anime-character.jpg"
+              src={withBase('/hero/anime-character.jpg')}
               alt="Red aesthetic samurai anime artwork"
               className="relative z-10 mx-auto h-auto max-h-[min(59vh,465px)] w-full object-contain object-center drop-shadow-[0_20px_50px_rgba(239,68,68,0.25)]"
               width={724}

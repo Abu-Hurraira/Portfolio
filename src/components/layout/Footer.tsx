@@ -34,8 +34,8 @@ export function Footer() {
           <div>
             <h3 className="mb-4 text-sm font-semibold tracking-wide text-text">Quick Links</h3>
             <div className="flex flex-col gap-2 text-sm text-muted">
-              <a href="/#about" className="hover:text-text">About</a>
-              <a href="/#projects" className="hover:text-text">Projects</a>
+              <Link to="/#about" className="hover:text-text">About</Link>
+              <Link to="/#projects" className="hover:text-text">Projects</Link>
               <Link to="/company" className="hover:text-text">Company</Link>
               <Link to="/contact" className="hover:text-text">Contact</Link>
             </div>

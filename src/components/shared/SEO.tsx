@@ -1,5 +1,6 @@
 import { Helmet } from 'react-helmet-async'
 import { SITE } from '@/data'
+import { withBase } from '@/utils/assets'
 
 interface SEOProps {
   title?: string
@@ -16,6 +17,7 @@ export function SEO({
 }: SEOProps) {
   const fullTitle = title ? `${title} · ${SITE.name}` : `${SITE.name} · ${SITE.title}`
   const url = `${SITE.url}${path}`
+  const resolvedImage = withBase(image)
 
   return (
     <Helmet>
@@ -27,7 +29,7 @@ export function SEO({
       <meta property="og:title" content={fullTitle} />
       <meta property="og:description" content={description} />
       <meta property="og:url" content={url} />
-      <meta property="og:image" content={image} />
+      <meta property="og:image" content={resolvedImage} />
       <meta name="twitter:card" content="summary_large_image" />
       <meta name="twitter:title" content={fullTitle} />
       <meta name="twitter:description" content={description} />
