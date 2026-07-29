@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 675" fill="none">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1200" y2="675">
+      <stop stop-color="#050816"/>
+      <stop offset="1" stop-color="#0B1220"/>
+    </linearGradient>
+    <linearGradient id="bar" x1="0" y1="0" x2="0" y2="1">
+      <stop stop-color="#3B82F6"/>
+      <stop offset="1" stop-color="#8B5CF6"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="675" fill="url(#bg)"/>
+  <rect x="100" y="120" width="1000" height="440" rx="28" fill="#0B1220" stroke="#ffffff12"/>
+  <rect x="140" y="160" width="220" height="360" rx="16" fill="#111827"/>
+  <rect x="160" y="190" width="140" height="12" rx="6" fill="#8B5CF6" opacity="0.8"/>
+  <rect x="160" y="240" width="180" height="28" rx="8" fill="#ffffff10"/>
+  <rect x="160" y="284" width="180" height="28" rx="8" fill="#3B82F615"/>
+  <rect x="160" y="328" width="180" height="28" rx="8" fill="#ffffff10"/>
+  <rect x="400" y="160" width="280" height="160" rx="16" fill="#111827"/>
+  <rect x="710" y="160" width="350" height="160" rx="16" fill="#111827"/>
+  <rect x="400" y="350" width="660" height="170" rx="16" fill="#111827"/>
+  <rect x="440" y="460" width="40" height="40" rx="6" fill="url(#bar)" opacity="0.8"/>
+  <rect x="500" y="430" width="40" height="70" rx="6" fill="url(#bar)" opacity="0.7"/>
+  <rect x="560" y="400" width="40" height="100" rx="6" fill="url(#bar)" opacity="0.9"/>
+  <rect x="620" y="420" width="40" height="80" rx="6" fill="url(#bar)" opacity="0.65"/>
+  <rect x="680" y="390" width="40" height="110" rx="6" fill="url(#bar)"/>
+  <text x="100" y="90" fill="#8B5CF6" font-family="Syne,sans-serif" font-size="28" font-weight="700">Tracker</text>
+</svg>

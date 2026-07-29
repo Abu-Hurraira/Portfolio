@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 675" fill="none">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1200" y2="675">
+      <stop stop-color="#050816"/>
+      <stop offset="1" stop-color="#0B1220"/>
+    </linearGradient>
+    <linearGradient id="a" x1="0" y1="0" x2="1" y2="1">
+      <stop stop-color="#06B6D4"/>
+      <stop offset="1" stop-color="#3B82F6"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="675" fill="url(#bg)"/>
+  <circle cx="150" cy="150" r="200" fill="#06B6D4" opacity="0.12"/>
+  <circle cx="1050" cy="500" r="220" fill="#3B82F6" opacity="0.14"/>
+  <rect x="100" y="130" width="1000" height="420" rx="28" fill="#0B1220" stroke="url(#a)" stroke-opacity="0.45"/>
+  <rect x="140" y="170" width="200" height="340" rx="16" fill="#111827"/>
+  <circle cx="180" cy="210" r="18" fill="#3B82F6" opacity="0.8"/>
+  <rect x="210" y="200" width="90" height="10" rx="5" fill="#ffffff30"/>
+  <rect x="210" y="218" width="60" height="8" rx="4" fill="#ffffff15"/>
+  <rect x="160" y="270" width="160" height="36" rx="10" fill="#3B82F620" stroke="#3B82F640"/>
+  <rect x="160" y="320" width="160" height="36" rx="10" fill="#ffffff08"/>
+  <rect x="160" y="370" width="160" height="36" rx="10" fill="#ffffff08"/>
+  <rect x="380" y="170" width="320" height="150" rx="16" fill="#111827" stroke="#06B6D430"/>
+  <rect x="720" y="170" width="340" height="150" rx="16" fill="#111827" stroke="#8B5CF630"/>
+  <rect x="380" y="350" width="680" height="160" rx="16" fill="#111827"/>
+  <path d="M420 460 L520 400 L620 430 L780 360 L980 420" stroke="#06B6D4" stroke-width="3" fill="none"/>
+  <text x="140" y="100" fill="#3B82F6" font-family="Syne,sans-serif" font-size="28" font-weight="700">Creative IT Park CRM</text>
+</svg>
