@@ -167,11 +167,7 @@ export const PROJECTS: Project[] = [
     longDescription:
       'A full-stack institutional platform built with ASP.NET Core and SQL Server that centralizes teacher folder management, course organization, and synchronized updates. Designed for clarity, access control, and reliable day-to-day academic operations.',
     image: '/projects/teacher-folder.png',
-    gallery: [
-      '/projects/teacher-folder.png',
-      '/projects/teacher-folder-2.png',
-      '/projects/teacher-folder-3.png',
-    ],
+    gallery: ['/projects/teacher-folder.png'],
     tech: ['ASP.NET Core', 'C#', 'SQL Server', 'MVC', 'Bootstrap', 'Entity Framework'],
     github: 'https://github.com/Abu-Hurraira',
     features: [
@@ -207,11 +203,7 @@ export const PROJECTS: Project[] = [
     longDescription:
       'An enterprise CRM built for Creative IT Park that unifies leads, deals, meetings, and automation. Integrates Gemini AI for intelligent assistance and WhatsApp Business API for bulk messaging and follow-ups — turning CRM from a database into an operating system for sales and client workflows.',
     image: '/projects/crm.png',
-    gallery: [
-      '/projects/crm.png',
-      '/projects/crm-2.png',
-      '/projects/crm-3.png',
-    ],
+    gallery: ['/projects/crm.png'],
     tech: ['Laravel', 'PHP', 'MySQL', 'JavaScript', 'REST APIs', 'Gemini AI', 'WhatsApp Business API'],
     live: 'https://creativeitpark.org/',
     features: [
@@ -247,10 +239,7 @@ export const PROJECTS: Project[] = [
     longDescription:
       'A location-aware restaurant discovery experience built with React, Vite, and Leaflet. Users search places, explore nearby restaurants, and interact with a responsive map interface designed for fast discovery.',
     image: '/projects/restaurant.png',
-    gallery: [
-      '/projects/restaurant.png',
-      '/projects/restaurant-2.png',
-    ],
+    gallery: ['/projects/restaurant.png'],
     tech: ['React', 'Vite', 'Leaflet', 'JavaScript', 'CSS'],
     github: 'https://github.com/Abu-Hurraira',
     features: [
@@ -285,11 +274,7 @@ export const PROJECTS: Project[] = [
     longDescription:
       'Tracker is a premium productivity application focused on daily record keeping, multi-account management, and rich analytics. It combines timeline views, calendars, charts, filters, backups, and exportable reports into a cohesive modern dashboard experience.',
     image: '/projects/tracker.png',
-    gallery: [
-      '/projects/tracker.png',
-      '/projects/tracker-2.png',
-      '/projects/tracker-3.png',
-    ],
+    gallery: ['/projects/tracker.png'],
     tech: ['React', 'TypeScript', 'Charts', 'Local Storage', 'Vite'],
     github: 'https://github.com/Abu-Hurraira',
     features: [
@@ -356,6 +341,114 @@ export const PROJECTS: Project[] = [
     category: 'Product',
     year: '2025',
     architecture: ['React UI (lazy routes & sections)', 'Theme & App Contexts', 'GitHub REST API', 'Static Build (Vercel / Netlify)'],
+  },
+  {
+    id: '6',
+    slug: 'ecommerce-web',
+    title: 'E-Commerce Web Application',
+    subtitle: 'Modern online shopping & product catalog platform',
+    description:
+      'Feature-rich e-commerce web platform with interactive product catalogs, real-time cart management, filtering, and responsive checkout interface.',
+    longDescription:
+      'A comprehensive e-commerce web application built for modern online retail experiences. Features dynamic product filtering, cart persistence across sessions, item management, detailed product views, and a clean, responsive layout designed for seamless customer navigation.',
+    image: '/projects/ecommerce.png',
+    gallery: ['/projects/ecommerce.png'],
+    tech: ['JavaScript', 'React', 'HTML5', 'CSS3', 'REST APIs', 'State Management'],
+    github: 'https://github.com/Abu-Hurraira/Ecommerece-Web',
+    features: [
+      'Dynamic product catalog & category filters',
+      'Interactive shopping cart with persistence',
+      'Instant search and sorting functionality',
+      'Detailed product view modals & pages',
+      'Responsive, mobile-friendly design',
+      'Streamlined checkout workflow UI',
+    ],
+    challenges: [
+      'Maintaining consistent cart state across browser sessions',
+      'Ensuring fast filtering and search performance across product catalogs',
+      'Building an intuitive, mobile-first shopping navigation system',
+    ],
+    solutions: [
+      'Implemented local storage state sync with optimistic UI updates',
+      'Optimized catalog list rendering and client-side indexing',
+      'Designed responsive grid layouts with touch-friendly controls',
+    ],
+    role: 'Frontend / Full-stack Developer — catalog architecture, UI/UX, and cart logic',
+    category: 'Frontend',
+    year: '2024',
+    architecture: ['Product Catalog State', 'Cart Manager', 'UI Layout Engine', 'REST API Integration'],
+  },
+  {
+    id: '7',
+    slug: 'product-registration-portals',
+    title: 'Product Registration Portals',
+    subtitle: 'Enterprise product registration & verification system',
+    description:
+      'Streamlined portal system for product registration, serial number verification, user authentication, and data validation.',
+    longDescription:
+      'An institutional and enterprise product registration portal designed to handle multi-step user onboarding, product serial validation, registration record tracking, and administrative dashboards. Focuses on data integrity, strict input validation, and role-based portal access.',
+    image: '/projects/product-registration.png',
+    gallery: ['/projects/product-registration.png'],
+    tech: ['PHP', 'Laravel', 'MySQL', 'JavaScript', 'Bootstrap', 'REST APIs'],
+    github: 'https://github.com/Abu-Hurraira/Product_Registration_Portals',
+    features: [
+      'Multi-step product registration workflows',
+      'Serial number validation & verification engine',
+      'User account creation & portal access control',
+      'Admin dashboard for registration management',
+      'Exportable registration audit reports',
+      'Automated status notifications & emails',
+    ],
+    challenges: [
+      'Validating unique product serial numbers against spoofing',
+      'Handling complex multi-stage forms without state loss',
+      'Structuring administrative review workflows efficiently',
+    ],
+    solutions: [
+      'Implemented database-level uniqueness checks and validation constraints',
+      'Built persistent form state handlers across registration steps',
+      'Created intuitive admin table views with filtering and status controls',
+    ],
+    role: 'Full-stack Developer — database schema, verification backend, and portal UI',
+    category: 'Enterprise',
+    year: '2024',
+    architecture: ['Form Validation Engine', 'Portal Controllers', 'MySQL Schema', 'Admin Dashboard'],
+  },
+  {
+    id: '8',
+    slug: 'od-sports',
+    title: 'OD Sports Platform',
+    subtitle: 'Sports management & fixture tracking portal',
+    description:
+      'Interactive web platform for sports events, tournament schedules, team standings, and match updates.',
+    longDescription:
+      'A sports management web platform dedicated to organizing tournaments, managing match fixtures, updating standings, and presenting team profiles. Provides sports enthusiasts and organizers with a centralized hub for tournament tracking and match schedules.',
+    image: '/projects/od-sports.png',
+    gallery: ['/projects/od-sports.png'],
+    tech: ['JavaScript', 'React', 'HTML5', 'CSS3', 'REST APIs', 'UI/UX'],
+    github: 'https://github.com/Abu-Hurraira/OD-Sports',
+    features: [
+      'Tournament fixture & match scheduling',
+      'Team profiles & roster management',
+      'Live match score tracking & leaderboards',
+      'Interactive sports news & announcement feed',
+      'Responsive high-contrast sports layout',
+      'Search & filter for matches and teams',
+    ],
+    challenges: [
+      'Designing dynamic tournament bracket and leaderboard views',
+      'Handling frequent score updates smoothly in the UI',
+      'Crafting an engaging visual aesthetic for sports fans',
+    ],
+    solutions: [
+      'Developed reusable tournament tree and standings table components',
+      'Optimized UI state transitions for live score updates',
+      'Designed bold card layouts and vibrant sports badges',
+    ],
+    role: 'Full-stack Developer — UI design, score tracking logic, and tournament engine',
+    category: 'Frontend',
+    year: '2024',
+    architecture: ['Tournament Engine', 'Leaderboard State', 'Team Modules', 'Responsive UI'],
   },
 ]
 

@@ -10,6 +10,9 @@ type ProjectImageProps = Omit<ImgHTMLAttributes<HTMLImageElement>, 'src'> & {
 export function ProjectImage({ src, alt, className, ...props }: ProjectImageProps) {
   const resolvedSrc = withBase(src)
   const [current, setCurrent] = useState(resolvedSrc)
+  const [failed, setFailed] = useState(false)
+
+  if (failed) return null
 
   return (
     <img
@@ -21,6 +24,8 @@ export function ProjectImage({ src, alt, className, ...props }: ProjectImageProp
       onError={() => {
         if (current.endsWith('.png')) {
           setCurrent(current.replace(/\.png$/i, '.svg'))
+        } else {
+          setFailed(true)
         }
       }}
       {...props}

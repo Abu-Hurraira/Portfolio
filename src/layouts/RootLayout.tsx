@@ -8,6 +8,8 @@ import { useKonamiCode } from '@/hooks/useKonamiCode'
 import { pageTransition } from '@/animations/variants'
 import { PageLoader } from '@/components/shared/LazyLoad'
 
+import { ScrollToTop } from '@/components/shared/ScrollToTop'
+
 const Footer = lazy(() =>
   import('@/components/layout/Footer').then((m) => ({ default: m.Footer })),
 )
@@ -88,6 +90,7 @@ export function RootLayout() {
 
   return (
     <SmoothScroll>
+      <ScrollToTop />
       <ScrollProgress />
       <DeferredChrome />
       <Navbar />

@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 675" fill="none">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1200" y2="675">
+      <stop stop-color="#050816"/>
+      <stop offset="1" stop-color="#0B1220"/>
+    </linearGradient>
+    <linearGradient id="a" x1="0" y1="0" x2="1" y2="1">
+      <stop stop-color="#F59E0B"/>
+      <stop offset="1" stop-color="#EF4444"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="675" fill="url(#bg)"/>
+  <circle cx="200" cy="180" r="180" fill="#F59E0B" opacity="0.12"/>
+  <circle cx="1000" cy="480" r="200" fill="#EF4444" opacity="0.14"/>
+  <rect x="100" y="130" width="1000" height="420" rx="28" fill="#0B1220" stroke="url(#a)" stroke-opacity="0.45"/>
+  
+  <rect x="140" y="170" width="280" height="340" rx="16" fill="#111827" stroke="#ffffff10"/>
+  <rect x="170" y="200" width="140" height="12" rx="6" fill="#F59E0B" opacity="0.8"/>
+  <rect x="170" y="240" width="220" height="60" rx="10" fill="#F59E0B15" stroke="#F59E0B30"/>
+  <rect x="170" y="320" width="220" height="60" rx="10" fill="#EF444415" stroke="#EF444430"/>
+  <rect x="170" y="400" width="220" height="60" rx="10" fill="#ffffff08"/>
+
+  <rect x="450" y="170" width="610" height="340" rx="16" fill="#111827" stroke="#ffffff10"/>
+  <rect x="480" y="200" width="160" height="12" rx="6" fill="#EF4444" opacity="0.8"/>
+  <rect x="480" y="235" width="550" height="45" rx="8" fill="#ffffff08"/>
+  <rect x="480" y="290" width="550" height="45" rx="8" fill="#ffffff08"/>
+  <rect x="480" y="345" width="550" height="45" rx="8" fill="#ffffff08"/>
+  <rect x="480" y="400" width="550" height="45" rx="8" fill="#ffffff08"/>
+  
+  <text x="140" y="95" fill="#F59E0B" font-family="Syne,sans-serif" font-size="28" font-weight="700">OD Sports Platform</text>
+</svg>

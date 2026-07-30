@@ -15,6 +15,9 @@ export function SmoothScroll({ children }: { children: React.ReactNode }) {
       wheelMultiplier: 1,
     })
 
+    const w = window as unknown as { __lenis?: Lenis }
+    w.__lenis = lenis
+
     let raf = 0
     const frame = (time: number) => {
       lenis.raf(time)
@@ -26,6 +29,7 @@ export function SmoothScroll({ children }: { children: React.ReactNode }) {
     return () => {
       cancelAnimationFrame(raf)
       lenis.destroy()
+      delete w.__lenis
       document.documentElement.classList.remove('lenis')
     }
   }, [reduced])

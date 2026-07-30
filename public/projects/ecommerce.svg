@@ -1,0 +1,36 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 675" fill="none">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1200" y2="675">
+      <stop stop-color="#050816"/>
+      <stop offset="1" stop-color="#0B1220"/>
+    </linearGradient>
+    <linearGradient id="a" x1="0" y1="0" x2="1" y2="1">
+      <stop stop-color="#EC4899"/>
+      <stop offset="1" stop-color="#8B5CF6"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="675" fill="url(#bg)"/>
+  <circle cx="1000" cy="140" r="190" fill="#EC4899" opacity="0.15"/>
+  <circle cx="180" cy="500" r="160" fill="#8B5CF6" opacity="0.12"/>
+  <rect x="100" y="130" width="1000" height="420" rx="28" fill="#0B1220" stroke="url(#a)" stroke-opacity="0.45"/>
+  <rect x="140" y="170" width="220" height="340" rx="16" fill="#111827"/>
+  <rect x="165" y="200" width="120" height="12" rx="6" fill="#EC4899" opacity="0.8"/>
+  <rect x="165" y="235" width="170" height="28" rx="8" fill="#ffffff10"/>
+  <rect x="165" y="275" width="170" height="28" rx="8" fill="#EC489918"/>
+  <rect x="165" y="315" width="170" height="28" rx="8" fill="#ffffff10"/>
+  
+  <rect x="390" y="170" width="200" height="155" rx="14" fill="#111827" stroke="#ffffff10"/>
+  <rect x="410" y="190" width="160" height="85" rx="8" fill="#EC489912"/>
+  <rect x="410" y="285" width="90" height="10" rx="5" fill="#ffffff25"/>
+
+  <rect x="620" y="170" width="200" height="155" rx="14" fill="#111827" stroke="#ffffff10"/>
+  <rect x="640" y="190" width="160" height="85" rx="8" fill="#8B5CF612"/>
+  <rect x="640" y="285" width="90" height="10" rx="5" fill="#ffffff25"/>
+
+  <rect x="850" y="170" width="200" height="155" rx="14" fill="#111827" stroke="#ffffff10"/>
+  <rect x="870" y="190" width="160" height="85" rx="8" fill="#3B82F612"/>
+  <rect x="870" y="285" width="90" height="10" rx="5" fill="#ffffff25"/>
+
+  <rect x="390" y="350" width="660" height="160" rx="14" fill="#111827" stroke="#ffffff10"/>
+  <text x="140" y="95" fill="#EC4899" font-family="Syne,sans-serif" font-size="28" font-weight="700">E-Commerce Web Application</text>
+</svg>
