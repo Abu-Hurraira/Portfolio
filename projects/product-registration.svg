@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 675" fill="none">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1200" y2="675">
+      <stop stop-color="#050816"/>
+      <stop offset="1" stop-color="#0B1220"/>
+    </linearGradient>
+    <linearGradient id="a" x1="0" y1="0" x2="1" y2="1">
+      <stop stop-color="#10B981"/>
+      <stop offset="1" stop-color="#3B82F6"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="675" fill="url(#bg)"/>
+  <circle cx="1100" cy="500" r="210" fill="#10B981" opacity="0.12"/>
+  <circle cx="150" cy="160" r="170" fill="#3B82F6" opacity="0.14"/>
+  <rect x="100" y="130" width="1000" height="420" rx="28" fill="#0B1220" stroke="url(#a)" stroke-opacity="0.45"/>
+  <rect x="150" y="170" width="430" height="340" rx="16" fill="#111827" stroke="#ffffff10"/>
+  <rect x="180" y="200" width="180" height="12" rx="6" fill="#10B981" opacity="0.8"/>
+  <rect x="180" y="240" width="370" height="38" rx="8" fill="#ffffff08" stroke="#ffffff15"/>
+  <rect x="180" y="300" width="370" height="38" rx="8" fill="#ffffff08" stroke="#ffffff15"/>
+  <rect x="180" y="360" width="370" height="38" rx="8" fill="#ffffff08" stroke="#ffffff15"/>
+  <rect x="180" y="430" width="150" height="42" rx="10" fill="#10B981"/>
+
+  <rect x="610" y="170" width="440" height="340" rx="16" fill="#111827" stroke="#ffffff10"/>
+  <rect x="640" y="200" width="140" height="12" rx="6" fill="#3B82F6" opacity="0.8"/>
+  <rect x="640" y="240" width="380" height="60" rx="10" fill="#10B98115" stroke="#10B98130"/>
+  <rect x="640" y="320" width="380" height="60" rx="10" fill="#ffffff08"/>
+  <rect x="640" y="400" width="380" height="60" rx="10" fill="#ffffff08"/>
+  <text x="140" y="95" fill="#10B981" font-family="Syne,sans-serif" font-size="28" font-weight="700">Product Registration Portals</text>
+</svg>
