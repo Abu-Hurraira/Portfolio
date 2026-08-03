@@ -1,0 +1,1 @@
+function e(e){let t=`/Portfolio/`.replace(/\/$/,``),n=e.replace(/\/$/,``);return n===``||n===t}function t(e){let t=e.startsWith(`#`)?e:`#${e}`,n=document.querySelector(t);if(n){let e=window;e.__lenis?e.__lenis.scrollTo(t,{duration:1.2}):n.scrollIntoView({behavior:`smooth`}),window.history.pushState(null,``,t)}}export{t as n,e as t};

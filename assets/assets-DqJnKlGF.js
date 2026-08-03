@@ -1,0 +1,1 @@
+function e(e){return!e||e.startsWith(`http://`)||e.startsWith(`https://`)||e.startsWith(`data:`)||e.startsWith(`blob:`)?e:`${`/Portfolio/`.endsWith(`/`)?`/Portfolio/`.slice(0,-1):`/Portfolio/`}${e.startsWith(`/`)?e:`/${e}`}`}export{e as t};

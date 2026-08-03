@@ -14,9 +14,9 @@
   <circle cx="720" cy="280" r="8" fill="#8B5CF6"/>
   <circle cx="540" cy="420" r="8" fill="#3B82F6"/>
   <circle cx="700" cy="400" r="8" fill="#06B6D4"/>
-  <rect x="80" y="80" width="280" height="160" rx="20" fill="#0B1220" stroke="#ffffff15"/>
-  <rect x="100" y="110" width="160" height="12" rx="6" fill="#ffffff30"/>
-  <rect x="100" y="140" width="220" height="10" rx="5" fill="#ffffff15"/>
-  <rect x="100" y="170" width="180" height="10" rx="5" fill="#ffffff15"/>
-  <text x="80" y="60" fill="#06B6D4" font-family="Syne,sans-serif" font-size="28" font-weight="700">Restaurant Finder</text>
+  <rect x="100" y="140" width="280" height="160" rx="20" fill="#0B1220" stroke="#ffffff15"/>
+  <rect x="120" y="170" width="160" height="12" rx="6" fill="#ffffff30"/>
+  <rect x="120" y="200" width="220" height="10" rx="5" fill="#ffffff15"/>
+  <rect x="120" y="230" width="180" height="10" rx="5" fill="#ffffff15"/>
+  <text x="100" y="90" fill="#06B6D4" font-family="Syne,sans-serif" font-size="28" font-weight="700">Restaurant Finder</text>
 </svg>
