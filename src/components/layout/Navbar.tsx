@@ -36,7 +36,7 @@ export function Navbar() {
             </span>
             <span className="hidden font-display text-sm font-semibold tracking-wide sm:block">
               {SITE.shortName}
-              <span className="text-muted">.dev</span>
+              <span className="text-muted">Abu Hurraira</span>
             </span>
           </Link>
         </Magnetic>
