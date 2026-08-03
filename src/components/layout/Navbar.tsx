@@ -1,5 +1,5 @@
 import { motion, useScroll, useMotionValueEvent } from 'framer-motion'
-import { Command, Menu, Moon, Sun, Volume2, VolumeX, X } from 'lucide-react'
+import { Command, Menu, Moon, Sun, X } from 'lucide-react'
 import { useState } from 'react'
 import { Link, useLocation } from 'react-router-dom'
 import { NAV_ITEMS, SITE } from '@/data'
@@ -13,7 +13,7 @@ export function Navbar() {
   const [scrolled, setScrolled] = useState(false)
   const [open, setOpen] = useState(false)
   const { scrollY } = useScroll()
-  const { soundEnabled, toggleSound, setCommandOpen } = useApp()
+  const { setCommandOpen } = useApp()
   const { theme, toggleTheme } = useTheme()
   const location = useLocation()
 
@@ -69,9 +69,6 @@ export function Navbar() {
             className="hidden sm:inline-flex"
           >
             <Command className="h-4 w-4" />
-          </Button>
-          <Button variant="ghost" size="icon" aria-label="Toggle sound" onClick={toggleSound}>
-            {soundEnabled ? <Volume2 className="h-4 w-4" /> : <VolumeX className="h-4 w-4" />}
           </Button>
           <Button variant="ghost" size="icon" aria-label="Toggle theme" onClick={toggleTheme}>
             {theme === 'dark' ? <Sun className="h-4 w-4" /> : <Moon className="h-4 w-4" />}
