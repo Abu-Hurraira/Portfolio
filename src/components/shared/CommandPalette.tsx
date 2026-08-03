@@ -6,6 +6,7 @@ import { NAV_ITEMS, PROJECTS, SITE } from '@/data'
 import { useApp } from '@/context/AppContext'
 import { cn } from '@/utils/cn'
 import { withBase } from '@/utils/assets'
+import { scrollToHash } from '@/utils/navigation'
 
 export function CommandPalette() {
   const { commandOpen, setCommandOpen } = useApp()
@@ -22,7 +23,7 @@ export function CommandPalette() {
           if (n.href.startsWith('/#')) {
             navigate('/')
             setTimeout(() => {
-              document.querySelector(n.href.slice(1))?.scrollIntoView({ behavior: 'smooth' })
+              scrollToHash(n.href.slice(1))
             }, 100)
           } else {
             navigate(n.href)
