@@ -38,6 +38,8 @@ import {
   GitFork,
   Home,
   User,
+  Wrench,
+  Palette,
 } from 'lucide-react'
 
 export type IconProps = SVGProps<SVGSVGElement> & { className?: string }
@@ -109,4 +111,6 @@ export {
   GitFork,
   Home,
   User,
+  Wrench,
+  Palette,
 }
