@@ -35,7 +35,7 @@ export function Navbar() {
               A
             </span>
             <span className="hidden font-display text-sm font-semibold tracking-wide sm:block">
-              {SITE.shortName}
+              Ammar{' '}
               <span className="text-muted">Abu Hurraira</span>
             </span>
           </Link>
