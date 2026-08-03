@@ -6,6 +6,7 @@ import { Magnetic } from '@/components/ui/Magnetic'
 import { Typewriter } from '@/components/ui/Typewriter'
 import { AuroraBackground } from '@/components/effects/AuroraBackground'
 import { withBase } from '@/utils/assets'
+import { scrollToHash } from '@/utils/navigation'
 
 export function HeroSection() {
   return (
@@ -56,7 +57,16 @@ export function HeroSection() {
               </Button>
             </Magnetic>
             <Magnetic className="shrink-0">
-              <Button variant="outline" size="default" className="h-11 px-4 sm:px-5" asChild>
+              <Button
+                variant="outline"
+                size="default"
+                className="h-11 px-4 sm:px-5"
+                onClick={(e) => {
+                  e.preventDefault()
+                  scrollToHash('projects')
+                }}
+                asChild
+              >
                 <a href="#projects" className="whitespace-nowrap">
                   <FolderKanban className="h-4 w-4" /> View Projects
                 </a>
@@ -132,7 +142,11 @@ export function HeroSection() {
 
       <a
         href="#about"
-        className="absolute bottom-8 left-1/2 flex -translate-x-1/2 flex-col items-center gap-2 text-xs text-muted transition hover:text-text"
+        onClick={(e) => {
+          e.preventDefault()
+          scrollToHash('about')
+        }}
+        className="absolute bottom-8 left-1/2 flex -translate-x-1/2 flex-col items-center gap-2 text-xs text-muted transition hover:text-text cursor-pointer"
       >
         Scroll
         <ArrowDown className="h-4 w-4" />

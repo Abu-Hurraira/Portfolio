@@ -1,18 +1,36 @@
 import { ArrowUp, Github, Linkedin, Mail } from '@/components/icons'
-import { Link } from 'react-router-dom'
+import { Link, useLocation } from 'react-router-dom'
 import { SITE, SOCIAL_LINKS } from '@/data'
 import { Magnetic } from '@/components/ui/Magnetic'
+import { isHomePage, scrollToHash } from '@/utils/navigation'
 
 export function Footer() {
+  const location = useLocation()
+  const isHome = isHomePage(location.pathname)
   const year = new Date().getFullYear()
 
-  const scrollTop = () => window.scrollTo({ top: 0, behavior: 'smooth' })
+  const scrollTop = () => {
+    const w = window as unknown as { __lenis?: { scrollTo: (target: number, opts?: any) => void } }
+    if (w.__lenis) {
+      w.__lenis.scrollTo(0, { immediate: false })
+    } else {
+      window.scrollTo({ top: 0, behavior: 'smooth' })
+    }
+  }
 
   const iconMap = {
     github: Github,
     linkedin: Linkedin,
     mail: Mail,
   }
+
+  const links = [
+    { label: 'About', href: '/#about' },
+    { label: 'Experience', href: '/#experience' },
+    { label: 'Projects', href: '/#projects' },
+    { label: 'Company', href: '/company' },
+    { label: 'Contact', href: '/contact' },
+  ]
 
   return (
     <footer className="relative mt-24 overflow-hidden border-t border-white/5">
@@ -34,10 +52,32 @@ export function Footer() {
           <div>
             <h3 className="mb-4 text-sm font-semibold tracking-wide text-text">Quick Links</h3>
             <div className="flex flex-col gap-2 text-sm text-muted">
-              <Link to="/#about" className="hover:text-text">About</Link>
-              <Link to="/#projects" className="hover:text-text">Projects</Link>
-              <Link to="/company" className="hover:text-text">Company</Link>
-              <Link to="/contact" className="hover:text-text">Contact</Link>
+              {links.map((link) => {
+                const isHash = link.href.startsWith('/#')
+
+                if (isHash && isHome) {
+                  const hash = link.href.slice(1)
+                  return (
+                    <a
+                      key={link.href}
+                      href={hash}
+                      onClick={(e) => {
+                        e.preventDefault()
+                        scrollToHash(hash)
+                      }}
+                      className="hover:text-text"
+                    >
+                      {link.label}
+                    </a>
+                  )
+                }
+
+                return (
+                  <Link key={link.href} to={link.href} className="hover:text-text">
+                    {link.label}
+                  </Link>
+                )
+              })}
             </div>
           </div>
 
@@ -63,7 +103,7 @@ export function Footer() {
             </div>
             <button
               onClick={scrollTop}
-              className="mt-6 inline-flex items-center gap-2 text-sm text-muted transition hover:text-text"
+              className="mt-6 inline-flex items-center gap-2 text-sm text-muted transition hover:text-text cursor-pointer"
             >
               Back to top <ArrowUp className="h-3.5 w-3.5" />
             </button>

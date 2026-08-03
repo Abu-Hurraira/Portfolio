@@ -9,19 +9,20 @@ import {
 } from '@/components/icons'
 import { Link, useLocation } from 'react-router-dom'
 import { cn } from '@/utils/cn'
-import { withBase } from '@/utils/assets'
+import { isHomePage, scrollToHash } from '@/utils/navigation'
 
 const items = [
-  { icon: Home, label: 'Home', href: '/#home', type: 'hash' as const },
-  { icon: User, label: 'About', href: '/#about', type: 'hash' as const },
-  { icon: Briefcase, label: 'Work', href: '/#experience', type: 'hash' as const },
-  { icon: FolderKanban, label: 'Projects', href: '/#projects', type: 'hash' as const },
-  { icon: Github, label: 'GitHub', href: '/#github', type: 'hash' as const },
-  { icon: Mail, label: 'Contact', href: '/contact', type: 'route' as const },
+  { icon: Home, label: 'Home', href: '/#home' },
+  { icon: User, label: 'About', href: '/#about' },
+  { icon: Briefcase, label: 'Work', href: '/#experience' },
+  { icon: FolderKanban, label: 'Projects', href: '/#projects' },
+  { icon: Github, label: 'GitHub', href: '/#github' },
+  { icon: Mail, label: 'Contact', href: '/contact' },
 ]
 
 export function FloatingDock() {
   const location = useLocation()
+  const isHome = isHomePage(location.pathname)
 
   return (
     <motion.nav
@@ -37,30 +38,36 @@ export function FloatingDock() {
           const className = cn(
             'group relative flex h-11 w-11 items-center justify-center rounded-xl text-muted transition-all duration-300 hover:-translate-y-2 hover:bg-white/10 hover:text-text hover:shadow-[0_0_20px_rgba(239,68,68,0.35)]',
           )
+          const isHash = item.href.startsWith('/#')
 
-          if (item.type === 'route') {
+          if (isHash && isHome) {
+            const hash = item.href.slice(1)
             return (
-              <Link key={item.label} to={item.href} className={className} aria-label={item.label}>
+              <a
+                key={item.label}
+                href={hash}
+                onClick={(e) => {
+                  e.preventDefault()
+                  scrollToHash(hash)
+                }}
+                className={className}
+                aria-label={item.label}
+              >
                 <Icon className="h-[18px] w-[18px]" />
                 <span className="pointer-events-none absolute -top-9 rounded-md bg-card px-2 py-1 text-[10px] opacity-0 transition group-hover:opacity-100">
                   {item.label}
                 </span>
-              </Link>
+              </a>
             )
           }
 
-          const isHome = location.pathname === '/' || location.pathname === import.meta.env.BASE_URL.replace(/\/$/, '')
-          const href = item.href.startsWith('/#')
-            ? isHome ? item.href.slice(1) : withBase(item.href)
-            : withBase(item.href)
-
           return (
-            <a key={item.label} href={href} className={className} aria-label={item.label}>
+            <Link key={item.label} to={item.href} className={className} aria-label={item.label}>
               <Icon className="h-[18px] w-[18px]" />
               <span className="pointer-events-none absolute -top-9 rounded-md bg-card px-2 py-1 text-[10px] opacity-0 transition group-hover:opacity-100">
                 {item.label}
               </span>
-            </a>
+            </Link>
           )
         })}
       </div>

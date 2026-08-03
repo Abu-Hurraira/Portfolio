@@ -34,7 +34,7 @@ export function ProjectsSection() {
                     className="h-full w-full object-cover transition duration-700 group-hover:scale-105"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-card via-transparent to-transparent" />
-                  <span className="absolute top-4 left-4 rounded-lg border border-white/10 bg-black/40 px-2.5 py-1 text-[10px] backdrop-blur">
+                  <span className="absolute top-4 right-4 z-10 rounded-lg border border-white/15 bg-black/60 px-2.5 py-1 text-[10px] font-medium text-white/90 backdrop-blur-md shadow-md">
                     {project.category} · {project.year}
                   </span>
                 </div>

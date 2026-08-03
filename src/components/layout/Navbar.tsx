@@ -7,7 +7,7 @@ import { useApp, useTheme } from '@/context/AppContext'
 import { Button } from '@/components/ui/Button'
 import { Magnetic } from '@/components/ui/Magnetic'
 import { cn } from '@/utils/cn'
-import { withBase } from '@/utils/assets'
+import { isHomePage, scrollToHash } from '@/utils/navigation'
 
 export function Navbar() {
   const [scrolled, setScrolled] = useState(false)
@@ -16,10 +16,9 @@ export function Navbar() {
   const { setCommandOpen } = useApp()
   const { theme, toggleTheme } = useTheme()
   const location = useLocation()
+  const isHome = isHomePage(location.pathname)
 
   useMotionValueEvent(scrollY, 'change', (v) => setScrolled(v > 40))
-
-  const links = NAV_ITEMS.filter((n) => n.href.startsWith('/#') || n.href === '/contact' || n.href === '/company')
 
   return (
     <header
@@ -35,27 +34,40 @@ export function Navbar() {
               A
             </span>
             <span className="hidden font-display text-sm font-semibold tracking-wide sm:block">
-              Ammar{' '}
-              <span className="text-muted">Abu Hurraira</span>
+              Ammar <span className="text-muted">Abu Hurraira</span>
             </span>
           </Link>
         </Magnetic>
 
-        <nav className="hidden items-center gap-1 lg:flex">
-          {links.slice(0, 6).map((item) => {
-            const isHome = location.pathname === '/' || location.pathname === import.meta.env.BASE_URL.replace(/\/$/, '')
-            const href = item.href.startsWith('/#')
-              ? isHome ? item.href.slice(1) : withBase(item.href)
-              : withBase(item.href)
+        <nav className="hidden items-center gap-1 xl:gap-1.5 lg:flex">
+          {NAV_ITEMS.map((item) => {
+            const isHash = item.href.startsWith('/#')
+
+            if (isHash && isHome) {
+              const hash = item.href.slice(1)
+              return (
+                <a
+                  key={item.href}
+                  href={hash}
+                  onClick={(e) => {
+                    e.preventDefault()
+                    scrollToHash(hash)
+                  }}
+                  className="rounded-lg px-2.5 py-1.5 text-xs font-medium text-muted transition-colors hover:bg-white/5 hover:text-text xl:px-3 xl:py-2 xl:text-sm"
+                >
+                  {item.label}
+                </a>
+              )
+            }
 
             return (
-              <a
+              <Link
                 key={item.href}
-                href={href}
-                className="rounded-lg px-3 py-2 text-sm text-muted transition-colors hover:bg-white/5 hover:text-text"
+                to={item.href}
+                className="rounded-lg px-2.5 py-1.5 text-xs font-medium text-muted transition-colors hover:bg-white/5 hover:text-text xl:px-3 xl:py-2 xl:text-sm"
               >
                 {item.label}
-              </a>
+              </Link>
             )
           })}
         </nav>
@@ -97,21 +109,36 @@ export function Navbar() {
           className="glass border-t border-white/5 lg:hidden"
         >
           <div className="section-pad flex flex-col gap-1 py-4">
-            {links.map((item) => {
-              const isHome = location.pathname === '/' || location.pathname === import.meta.env.BASE_URL.replace(/\/$/, '')
-              const href = item.href.startsWith('/#')
-                ? isHome ? item.href.slice(1) : withBase(item.href)
-                : withBase(item.href)
+            {NAV_ITEMS.map((item) => {
+              const isHash = item.href.startsWith('/#')
+
+              if (isHash && isHome) {
+                const hash = item.href.slice(1)
+                return (
+                  <a
+                    key={item.href}
+                    href={hash}
+                    onClick={(e) => {
+                      e.preventDefault()
+                      setOpen(false)
+                      scrollToHash(hash)
+                    }}
+                    className="rounded-xl px-4 py-3 text-sm text-muted hover:bg-white/5 hover:text-text"
+                  >
+                    {item.label}
+                  </a>
+                )
+              }
 
               return (
-                <a
+                <Link
                   key={item.href}
-                  href={href}
+                  to={item.href}
                   onClick={() => setOpen(false)}
                   className="rounded-xl px-4 py-3 text-sm text-muted hover:bg-white/5 hover:text-text"
                 >
                   {item.label}
-                </a>
+                </Link>
               )
             })}
           </div>
