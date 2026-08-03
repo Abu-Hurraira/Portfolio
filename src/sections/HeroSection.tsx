@@ -46,30 +46,27 @@ export function HeroSection() {
 
           <div className="mt-8 flex flex-nowrap items-center gap-2 sm:gap-3">
             <Magnetic className="shrink-0">
-              <Button
-                variant="glow"
-                size="default"
-                className="h-11 px-4 sm:px-5"
-                onClick={() => window.open(withBase(SITE.resumeUrl), '_blank')}
-              >
-                <Download className="h-4 w-4" />
-                <span className="whitespace-nowrap">Download Resume</span>
+              <Button variant="glow" size="default" className="h-11 px-4 sm:px-5" asChild>
+                <a
+                  href={withBase(SITE.resumeUrl)}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="flex items-center gap-2 whitespace-nowrap"
+                >
+                  <Download className="h-4 w-4" />
+                  <span>Download Resume</span>
+                </a>
               </Button>
             </Magnetic>
             <Magnetic className="shrink-0">
               <Button
                 variant="outline"
                 size="default"
-                className="h-11 px-4 sm:px-5"
-                onClick={(e) => {
-                  e.preventDefault()
-                  scrollToHash('projects')
-                }}
-                asChild
+                className="h-11 px-4 sm:px-5 cursor-pointer"
+                onClick={() => scrollToHash('projects')}
               >
-                <a href="#projects" className="whitespace-nowrap">
-                  <FolderKanban className="h-4 w-4" /> View Projects
-                </a>
+                <FolderKanban className="h-4 w-4" />
+                <span className="whitespace-nowrap">View Projects</span>
               </Button>
             </Magnetic>
             <Magnetic className="shrink-0">

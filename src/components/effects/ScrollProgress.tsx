@@ -6,7 +6,7 @@ export function ScrollProgress() {
 
   return (
     <motion.div
-      className="fixed top-0 right-0 left-0 z-[90] h-[2px] origin-left bg-gradient-to-r from-accent via-secondary to-purple"
+      className="pointer-events-none fixed top-0 right-0 left-0 z-[90] h-[2px] origin-left bg-gradient-to-r from-accent via-secondary to-purple"
       style={{ scaleX }}
     />
   )

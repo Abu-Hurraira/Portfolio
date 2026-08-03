@@ -12,6 +12,17 @@ import { cn } from '@/utils/cn'
 /** Survives theme toggles / parent re-renders — once revealed, stays revealed. */
 const revealedSections = new Set<string>()
 
+/**
+ * Manually force a section to reveal by ID (e.g. when user clicks a nav tab).
+ */
+export function revealSection(id: string) {
+  const cleanId = id.replace(/^#/, '')
+  revealedSections.add(cleanId)
+  if (typeof window !== 'undefined') {
+    window.dispatchEvent(new CustomEvent('reveal-section', { detail: cleanId }))
+  }
+}
+
 export function PageLoader({ full = false }: { full?: boolean }) {
   return (
     <div
@@ -57,6 +68,18 @@ export function LazyWhenVisible({
   const [show, setShow] = useState(() => revealedSections.has(id))
 
   useEffect(() => {
+    const handleReveal = (e: Event) => {
+      const customEvent = e as CustomEvent<string>
+      if (customEvent.detail === id) {
+        revealedSections.add(id)
+        setShow(true)
+      }
+    }
+    window.addEventListener('reveal-section', handleReveal)
+    return () => window.removeEventListener('reveal-section', handleReveal)
+  }, [id])
+
+  useEffect(() => {
     if (show) {
       revealedSections.add(id)
       return
@@ -97,8 +120,8 @@ export function LazyWhenVisible({
   }, [id, show, rootMargin])
 
   return (
-    <div ref={ref} className={className} data-lazy-section={id}>
-      {show ? children : (fallback ?? <SectionSkeleton />)}
+    <div ref={ref} id={id} className={className} data-lazy-section={id}>
+      {show ? children : (fallback ?? <SectionSkeleton tall={id === 'projects'} />)}
     </div>
   )
 }
